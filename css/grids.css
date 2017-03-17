@@ -6,16 +6,24 @@
 }
 
 [class*='col-']{
+  display:inline-block;
   float: left;
 	padding: 0;
   /* To have all columns on low res be full sized*/
   width:100%;
+  /* This is for content fixing, not the correct fix need to source a better fix*/
+  min-height: 1px;
 }
 
-.container::before, .container::after{
+
+/* Makes the any col have content */
+[class*='col-']::before, [class*='col-']::after{
   content: "";
   display: block;
-  clear: both;
+}
+
+[class*='col-']::after{
+  clear:both;
 }
 
 @media (min-width:50em) {
